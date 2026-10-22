@@ -14,7 +14,7 @@ The SmartSdk provides high-performance, cross-platform RFID reading, Bitwise Cha
 
 ## 1. Java / Android / Kotlin (Gradle & Maven)
 
-The Java binding is self-contained: it embeds hardened unmanaged Native AOT engines for **Windows (x64)**, **Linux (x64)**, and **macOS Universal (Apple Silicon & Intel)** with zero external driver prerequisites.
+The Java binding is self-contained: it embeds hardened unmanaged Native AOT engines for **Windows (x64)** and **Linux (x64)** with zero external driver prerequisites.
 
 ### Gradle (Groovy DSL)
 Add to your `build.gradle`:
@@ -174,7 +174,6 @@ docker run -d \
 | **[`beetech_smartsdk-1.0.5-py3-none-any.whl`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/beetech_smartsdk-1.0.5-py3-none-any.whl)** | Python 3.9+ | Self-contained Python wheel package with hardened binaries |
 | **[`AdvSmartSdk.dll`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.dll)** | Windows x64 | Hardened Native AOT unmanaged engine (PE64) |
 | **[`AdvSmartSdk.so`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.so)** | Linux x64 | Hardened Native AOT shared library (ELF64 stripped) |
-| **[`AdvSmartSdk.dylib`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.dylib)** | macOS Universal | Native AOT universal binary (Apple Silicon + Intel) |
 
 ---
 
