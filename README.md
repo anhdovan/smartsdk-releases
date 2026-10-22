@@ -4,16 +4,17 @@ Official public release repository and package distribution for **Beetech Univer
 
 [![Release](https://img.shields.io/github/v/release/anhdovan/smartsdk-releases?color=blue&logo=github)](https://github.com/anhdovan/smartsdk-releases/releases/latest)
 [![PyPI](https://img.shields.io/pypi/v/beetech-smartsdk?color=green&logo=pypi)](https://pypi.org/project/beetech-smartsdk/)
-[![NuGet](https://img.shields.io/nuget/v/Beetech.Adv.SmartSdk?color=blue&logo=nuget)](https://www.nuget.org/packages/Beetech.Adv.SmartSdk/)
-[![NPM](https://img.shields.io/npm/v/@beetech-autoid/adv-smart-sdk?color=red&logo=npm)](https://www.npmjs.com/package/@beetech-autoid/adv-smart-sdk)
+[![NuGet](https://img.shields.io/nuget/v/Beetech.OmniAutoId.Client?color=blue&logo=nuget)](https://www.nuget.org/packages/Beetech.OmniAutoId.Client/)
+[![NPM](https://img.shields.io/npm/v/@beetech-autoid/smartsdk-client?color=red&logo=npm)](https://www.npmjs.com/package/@beetech-autoid/smartsdk-client)
+[![Docker](https://img.shields.io/docker/v/anhdv74/adv-rfid-gateway?color=blue&logo=docker)](https://hub.docker.com/r/anhdv74/adv-rfid-gateway)
 
-The SmartSdk provides high-performance, cross-platform RFID reading, Bitwise ChaCha20 EPC Cryptography, GS1 SGTIN-96 & SSCC-18 translation, and multi-tier industrial automation.
+The SmartSdk provides high-performance, cross-platform RFID reading, Bitwise ChaCha20 EPC Cryptography, GS1 SGTIN-96 & SSCC-18 translation, and multi-tier industrial edge automation.
 
 ---
 
 ## 1. Java / Android / Kotlin (Gradle & Maven)
 
-The Java binding is self-contained: it embeds unmanaged Native AOT engines for **Windows (x64)**, **Linux (x64)**, and **macOS Universal (Apple Silicon & Intel)**. It auto-extracts and links with zero driver setup.
+The Java binding is self-contained: it embeds hardened unmanaged Native AOT engines for **Windows (x64)**, **Linux (x64)**, and **macOS Universal (Apple Silicon & Intel)** with zero external driver prerequisites.
 
 ### Gradle (Groovy DSL)
 Add to your `build.gradle`:
@@ -22,13 +23,13 @@ Add to your `build.gradle`:
 repositories {
     mavenCentral()
     maven {
-        // Direct public zero-friction repository (No login required)
+        // Direct public zero-friction repository (No credentials required)
         url = uri("https://raw.githubusercontent.com/anhdovan/smartsdk-releases/main/repository")
     }
 }
 
 dependencies {
-    implementation 'com.beetech.adv:smartsdk:1.0.4'
+    implementation 'com.beetech.adv:smartsdk:1.0.5'
 }
 ```
 
@@ -44,7 +45,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.beetech.adv:smartsdk:1.0.4")
+    implementation("com.beetech.adv:smartsdk:1.0.5")
 }
 ```
 
@@ -61,7 +62,7 @@ dependencies {
     <dependency>
         <groupId>com.beetech.adv</groupId>
         <artifactId>smartsdk</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
     </dependency>
 </dependencies>
 ```
@@ -133,7 +134,7 @@ with smart.create_reader("mock-reader", 1, "127.0.0.1") as reader:
 ## 3. .NET / C# (NuGet)
 
 ```bash
-dotnet add package Beetech.Adv.SmartSdk --version 1.0.4
+dotnet add package Beetech.OmniAutoId.Client --version 1.0.3
 ```
 
 ---
@@ -141,21 +142,39 @@ dotnet add package Beetech.Adv.SmartSdk --version 1.0.4
 ## 4. Node.js / TypeScript (NPM)
 
 ```bash
-npm install @beetech-autoid/adv-smart-sdk@1.0.4
+npm install @beetech-autoid/smartsdk-client
 ```
 
 ---
 
-## Direct Download Assets (v1.0.4)
+## 5. Docker Edge Gateway
+
+Run the preconfigured edge gateway container directly with Docker:
+
+```bash
+docker pull anhdv74/adv-rfid-gateway:latest
+
+docker run -d \
+  --name rfid-gateway \
+  -p 19090:19090 \
+  -p 19443:19443 \
+  -v rfid-data:/app/data \
+  -v rfid-spool:/app/spool \
+  anhdv74/adv-rfid-gateway:latest
+```
+
+---
+
+## Direct Download Assets (v1.0.5)
 
 | Asset | Platform / Runtime | Description |
 | :--- | :--- | :--- |
-| **[`smartsdk-1.0.4.jar`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/smartsdk-1.0.4.jar)** | Java 21+ (All OS) | Standalone JAR containing embedded native engines |
-| **[`smartsdk-1.0.4.pom`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/smartsdk-1.0.4.pom)** | Maven / Gradle | POM dependency metadata |
-| **[`beetech_smartsdk-1.0.4-py3-none-any.whl`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/beetech_smartsdk-1.0.4-py3-none-any.whl)** | Python 3.9+ | Self-contained Python wheel package |
-| **[`AdvSmartSdk.dll`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/AdvSmartSdk.dll)** | Windows x64 | Native AOT unmanaged dynamic engine |
-| **[`AdvSmartSdk.so`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/AdvSmartSdk.so)** | Linux x64 | Native AOT unmanaged shared library (glibc 2.31+) |
-| **[`AdvSmartSdk.dylib`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.4/AdvSmartSdk.dylib)** | macOS Universal | Native AOT universal binary (Apple Silicon + Intel) |
+| **[`smartsdk-1.0.5.jar`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/smartsdk-1.0.5.jar)** | Java 21+ (All OS) | Standalone JAR containing embedded hardened native engines |
+| **[`smartsdk-1.0.5.pom`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/smartsdk-1.0.5.pom)** | Maven / Gradle | POM dependency metadata |
+| **[`beetech_smartsdk-1.0.5-py3-none-any.whl`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/beetech_smartsdk-1.0.5-py3-none-any.whl)** | Python 3.9+ | Self-contained Python wheel package with hardened binaries |
+| **[`AdvSmartSdk.dll`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.dll)** | Windows x64 | Hardened Native AOT unmanaged engine (PE64) |
+| **[`AdvSmartSdk.so`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.so)** | Linux x64 | Hardened Native AOT shared library (ELF64 stripped) |
+| **[`AdvSmartSdk.dylib`](https://github.com/anhdovan/smartsdk-releases/releases/download/v1.0.5/AdvSmartSdk.dylib)** | macOS Universal | Native AOT universal binary (Apple Silicon + Intel) |
 
 ---
 
