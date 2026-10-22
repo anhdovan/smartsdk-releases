@@ -14,7 +14,7 @@ The SmartSdk provides high-performance, cross-platform RFID reading, Bitwise Cha
 
 ## 1. Java / Android / Kotlin (Gradle & Maven)
 
-The Java binding is self-contained: it embeds hardened unmanaged Native AOT engines for **Windows (x64)** and **Linux (x64)** with zero external driver prerequisites.
+The Java binding is self-contained: it embeds hardened unmanaged Native AOT engines for **Windows (x64)**, **Linux (x64)**, and **macOS (Universal 2: ARM64 + x86_64)** with zero external driver prerequisites.
 
 ### Gradle (Groovy DSL)
 Add to your `build.gradle`:
